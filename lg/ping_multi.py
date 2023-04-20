@@ -16,7 +16,20 @@ from lg.commands import get_ping_multi_cmds
 from lg.ttp import get_template, parse_txt
 
 
-async def run_device(hostname: str, device: dict, raw_output: bool):
+async def run_device(hostname: str, device: dict, raw_output: bool) -> dict:
+    """Run commands on device.
+
+    Args:
+        hostname (str): Device hostname.
+        device (dict): Device dictionary with commands, location, etc.
+        raw_output (bool): Should the output be plain text or run through ttp.
+
+    Raises:
+        Exception: On failure raise excetion.
+
+    Returns:
+        dict: Output from device and device location.
+    """
     location_name = device["location_name"]
     try:
         response = await get_output(
@@ -25,22 +38,19 @@ async def run_device(hostname: str, device: dict, raw_output: bool):
             cli_cmds=device["cmds"],
             timeout=60,
         )
-        print(response.result)
         device_output = "\n".join(resp.result for resp in response.data)
 
         if not raw_output:
             device_output = parse_txt(device_output, device["template"])[0]
 
-        print(device_output)
-
     except Exception as err:
-        raise Exception(f"ERROR: Getting output failed for {location_name}: {err}")
+        raise Exception(f"Error getting output for {location_name}: {err}")
 
     return {"output": device_output, "location": location_name}
 
 
 async def process_lg_fields(form):
-    """Process fields on the lg form.
+    """Process fields on the lg multi ping form.
 
     Args:
         form (Form): WTForm being proccessed
@@ -61,6 +71,8 @@ async def process_lg_fields(form):
 
     output_table = {"devices": {}, "errors": [], "raw_output": raw_output}
 
+    # Get templates for the devices.
+    #
     for hostname, device in devices.items():
         template_name = get_template("ping", device["type"])
         device["template"] = template_name
@@ -81,12 +93,12 @@ async def process_lg_fields(form):
     except Exception as err:
         output_table["errors"].append(str(err))
 
+    # Process each device output, flagging any errors.
+    #
     for response in responses:
         if isinstance(response, Exception):
-            print(response)
             output_table["errors"].append(str(response))
         else:
-            print(response)
             location_name = response["location"]
             output_table["devices"][location_name] = response["output"]
 

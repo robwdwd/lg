@@ -10,11 +10,6 @@ from scrapli import AsyncScrapli
 from scrapli.response import MultiResponse, Response
 from lg import settings
 
-# import logging
-
-# logging.basicConfig(filename='logs/netmiko_global.log', level=logging.DEBUG)
-# logger = logging.getLogger("netmiko")
-
 
 def setup_device_args(hostname: str, device_type: str) -> dict:
     """Set up some default device arguments.

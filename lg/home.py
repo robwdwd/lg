@@ -13,7 +13,7 @@ from lg.templates import templates
 from lg.runcmd import get_output
 from lg.commands import get_cmd
 from lg.maps import process_bgp_output
-from lg.ttp import get_template, parse_txt
+from lg.ttp import get_template
 
 # pp = pprint.PrettyPrinter(indent=2, width=120)
 
@@ -47,7 +47,7 @@ async def process_lg_fields(form):
             timeout=timeout,
         )
     except Exception as err:
-        return {"errors": f"ERROR: Getting output failed for {location}: {err}"}
+        return {"errors": f"Error getting output for {location}: {err}"}
 
     if not raw_output:
         if template_name := get_template(command, cli["type"]):
