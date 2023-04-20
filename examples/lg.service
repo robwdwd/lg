@@ -1,0 +1,29 @@
+[Unit]
+Description=Network Looking Glass
+After=syslog.target
+After=network.target
+
+[Service]
+Type=simple
+SyslogIdentifier=lg
+StandardOutput=null
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/dev/lg
+ExecStart=/var/www/dev/lg/.venv/bin/gunicorn -k lg.workers.CustomWorker -w $WORKERS -b ${LISTEN}:${PORT} --timeout $TIMEOUT --pid /var/run/lg/server.pid --log-file=${LOG_DIR}/gunicorn.log lg:app
+Restart=always
+
+RuntimeDirectory=lg
+
+Environment=VIRTUAL_ENV=/var/www/dev/lg/.venv/
+Environment=WORKERS=2
+Environment=LISTEN=127.0.0.1
+Environment=TIMEOUT=60
+Environment=PORT=8010
+Environment=LOG_DIR=/var/log/lg/
+Environment=PATH=/var/www/dev/lg/.venv/bin:/usr/local/bin:/usr/bin:/bin
+EnvironmentFile=-/var/www/dev/lg/.env
+
+
+[Install]
+WantedBy=multi-user.target

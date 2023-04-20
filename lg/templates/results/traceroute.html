@@ -1,0 +1,30 @@
+{% for destination, hops in results.output.items() %}
+  <p class="lead">Traceroute to
+    {{destination}}</p>
+
+  <table class="table table-hover table-sm">
+    <thead>
+      <tr>
+        <th scope="col">Hop #</th>
+        <th scope="col">Hop</th>
+        <th scope="col">Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for hop in hops.hops %}
+        <tr>
+          <th scope="row">{{hop.hop_number|default('-')}}</th>
+          <td>
+            {% if hop.fqdn %}
+              {{hop.fqdn}}
+              ({{hop.ip_address|default('-')}})
+            {% else %}
+              {{hop.ip_address|default('-')}}
+            {% endif %}
+          </td>
+          <td>{{hop.rtt}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endfor %}

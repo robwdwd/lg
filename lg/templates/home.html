@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Looking Glass
+{% endblock %}
+{% block page_title %}
+  Looking Glass
+{% endblock %}
+
+{% block content %}
+  <div class="row mt-4">
+    <div class="col">
+      <form method="post">
+        {{ form.csrf_token }}
+        <div class="row gx-3 gy-2 align-items-start">
+          <div class="col-12 col-md">
+            {{ form.location.label(class = 'form-label') }}
+
+            {% if form.location.errors %}
+              {{ form.location(class = 'form-select is-invalid') }}
+              <div class="invalid-feedback">
+                {% for error in form.location.errors %}
+                  {{ error }}
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.location(class = 'form-select') }}
+            {% endif %}
+
+          </div>
+          <div class="col-12 col-md">
+            {{ form.command.label(class = 'form-label') }}
+
+            {% if form.command.errors %}
+              {{ form.command(class = 'form-select is-invalid') }}
+              <div class="invalid-feedback">
+                {% for error in form.command.errors %}
+                  {{ error }}
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.command(class = 'form-select') }}
+            {% endif %}
+
+          </div>
+
+          <div class="col-12 col-md">
+            {{ form.ipaddress.label(class = 'form-label') }}
+
+            {% if form.ipaddress.errors %}
+              {{ form.ipaddress(class = 'form-control is-invalid') }}
+              <div class="invalid-feedback">
+                {% for error in form.ipaddress.errors %}
+                  {{ error }}
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.ipaddress(class = 'form-control') }}
+            {% endif %}
+
+          </div>
+        </div>
+        <div class="row gx-3 gy-2 d-flex justify-content-md-end">
+          <div class="col-12 col-md-2 my-3 d-flex justify-content-md-start">
+            <div class="form-check form-switch">
+              {{ form.raw_output(class="form-check-input", type="checkbox", role="switch", id="flexSwitchCheckDefault") }}
+              {{ form.raw_output.label(class = 'form-check-label', for = 'flexSwitchCheckDefault') }}
+            </div>
+          </div>
+          <div class="col-12 col-md-2 my-3 d-flex justify-content-md-end">
+            <button type="submit" id="submit" class="btn btn-dark">
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  {% if results %}
+    {% include 'results/index.html' %}
+  {% endif %}
+{% endblock %}

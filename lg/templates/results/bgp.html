@@ -1,0 +1,39 @@
+{% if not results.output %}
+
+  <p class="lead">No route found.</p>
+
+{% else %}
+
+{% for prefix, details in results.output.items() %}
+  <p class="lead">BGP route for {{prefix}}</p>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Path</th>
+        <th scope="col">AS Path</th>
+        <th scope="col">Next Hop</th>
+        <th scope="col">LP</th>
+        <th scope="col">Metric</th>
+        <th scope="col">Communities</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for path in details.paths %}
+        <tr{% if path.best_path %} class="table-success"{% endif %}>
+          <th scope="row">{{loop.index}}</th>
+          <td>{{path.as_path}}</td>
+          <td>{{path.next_hop}}</td>
+          <td>{{path.local_pref}}</td>
+          <td>{{path.metric}}</td>
+          <td>
+            {% for community in path.communities %}
+                {{ community }}<br />
+            {% endfor %}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endfor %}
+{% endif %}

@@ -1,0 +1,132 @@
+BGP routing table entry for 8.8.8.0/24
+Versions:
+  Process           bRIB/RIB  SendTblVer
+  Speaker          399390003   399390003
+Last Modified: Mar 24 04:56:26.866 for 3d05h
+Paths: (15 available, best #11)
+  Advertised IPv4 Unicast paths to update-groups (with more than one peer):
+    0.6 0.15
+  Advertised IPv4 Unicast paths to peers (in unique update groups):
+    212.74.91.80    80.169.238.86   212.74.80.201   212.74.82.116
+  Path #1: Received by speaker 0
+  Not advertised to any peer
+  15169
+    212.74.91.182 (metric 113310) from 212.36.182.164 (212.74.91.182)
+      Origin IGP, metric 5, localpref 100, valid, internal
+      Received Path ID 0, Local Path ID 0, version 0
+      Community: 8220:64002 8220:65000 8220:65130 8220:65401
+      Originator: 212.74.91.182, Cluster list: 212.36.182.164
+  Path #2: Received by speaker 0
+  Not advertised to any peer
+  15169
+    212.74.91.82 (metric 109360) from 212.74.82.14 (212.74.91.82)
+      Origin IGP, metric 5, localpref 100, valid, internal
+      Received Path ID 0, Local Path ID 0, version 0
+      Community: 8220:65000 8220:65060 8220:65402
+      Originator: 212.74.91.82, Cluster list: 212.74.82.14
+  Path #3: Received by speaker 0
+  Not advertised to any peer
+  15169
+    212.74.91.185 (metric 116260) from 212.74.82.62 (212.74.91.185)
+      Origin IGP, metric 5, localpref 100, valid, internal
+      Received Path ID 0, Local Path ID 0, version 0
+      Community: 8220:64002 8220:65000 8220:65180 8220:65401
+      Originator: 212.74.91.185, Cluster list: 212.74.82.62
+  Path #4: Received by speaker 0
+  Not advertised to any peer
+  15169
+    212.74.91.16 (metric 104660) from 212.74.82.80 (212.74.91.16)
+      Origin IGP, metric 5, localpref 100, valid, internal
+      Received Path ID 0, Local Path ID 0, version 0
+      Community: 8220:64002 8220:65000 8220:65140 8220:65401
+      Originator: 212.74.91.16, Cluster list: 212.74.82.80
+  Path #5: Received by speaker 0
+  Not advertised to any peer
+  15169
+    212.74.71.122 (metric 113910) from 212.74.82.91 (212.74.71.122)
+      Origin IGP, metric 5, localpref 100, valid, internal
+      Received Path ID 0, Local Path ID 0, version 0
+      Community: 8220:64002 8220:65000 8220:65062 8220:65401
+      Originator: 212.74.71.122, Cluster list: 212.74.82.91
+  Path #6: Received by speaker 0
+  Not advertised to any peer
+  15169
+    212.74.91.179 (metric 115560) from 212.74.82.109 (212.74.91.179)
+      Origin IGP, metric 5, localpref 100, valid, internal
+      Received Path ID 0, Local Path ID 0, version 0
+      Community: 8220:64006 8220:65000 8220:65100 8220:65401
+      Originator: 212.74.91.179, Cluster list: 212.74.82.109
+  Path #7: Received by speaker 0
+  Not advertised to any peer
+  6453 15169, (Received from a RR-client)
+    212.74.91.80 (metric 10) from 212.74.91.80 (212.74.91.80)
+      Origin IGP, metric 5, localpref 100, valid, internal, group-best
+      Received Path ID 0, Local Path ID 0, version 0
+      Community: 8220:64006 8220:65000 8220:65010 8220:65401
+  Path #8: Received by speaker 0
+  Not advertised to any peer
+  15169
+    212.74.91.74 (metric 103370) from 212.74.94.83 (212.74.91.74)
+      Origin IGP, metric 5, localpref 100, valid, internal
+      Received Path ID 0, Local Path ID 0, version 0
+      Community: 8220:65000 8220:65020 8220:65402
+      Originator: 212.74.91.74, Cluster list: 212.74.94.83
+  Path #9: Received by speaker 0
+  Not advertised to any peer
+  15169
+    212.74.90.32 (metric 103370) from 212.74.94.84 (212.74.90.32)
+      Origin IGP, metric 5, localpref 100, valid, internal
+      Received Path ID 0, Local Path ID 0, version 0
+      Community: 8220:65000 8220:65020 8220:65402
+      Originator: 212.74.90.32, Cluster list: 212.74.94.84
+  Path #10: Received by speaker 0
+  Not advertised to any peer
+  15169
+    212.74.90.229 (metric 103670) from 212.74.94.95 (212.74.90.229)
+      Origin IGP, metric 5, localpref 100, valid, internal
+      Received Path ID 0, Local Path ID 0, version 0
+      Community: 8220:65000 8220:65040 8220:65402
+      Originator: 212.74.90.229, Cluster list: 212.74.94.95
+  Path #11: Received by speaker 0
+  Advertised IPv4 Unicast paths to update-groups (with more than one peer):
+    0.6 0.15
+  Advertised IPv4 Unicast paths to peers (in unique update groups):
+    212.74.91.80    80.169.238.86   212.74.80.201   212.74.82.116
+  15169
+    212.74.90.107 (metric 60) from 212.74.94.143 (212.74.90.107)
+      Origin IGP, metric 5, localpref 100, valid, internal, best, group-best
+      Received Path ID 0, Local Path ID 1, version 399390003
+      Community: 8220:65000 8220:65010 8220:65402
+      Originator: 212.74.90.107, Cluster list: 212.74.94.143
+  Path #12: Received by speaker 0
+  Not advertised to any peer
+  15169
+    212.74.91.87 (metric 111700) from 212.74.94.153 (212.74.91.87)
+      Origin IGP, metric 5, localpref 100, valid, internal
+      Received Path ID 0, Local Path ID 0, version 0
+      Community: 8220:64002 8220:65000 8220:65035 8220:65401
+      Originator: 212.74.91.87, Cluster list: 212.74.94.153
+  Path #13: Received by speaker 0
+  Not advertised to any peer
+  15169
+    212.74.90.18 (metric 105720) from 212.74.94.217 (212.74.90.18)
+      Origin IGP, metric 5, localpref 100, valid, internal
+      Received Path ID 0, Local Path ID 0, version 0
+      Community: 8220:65000 8220:65030 8220:65402
+      Originator: 212.74.90.18, Cluster list: 212.74.94.217
+  Path #14: Received by speaker 0
+  Not advertised to any peer
+  15169
+    212.74.91.41 (metric 112560) from 212.74.94.242 (212.74.91.41)
+      Origin IGP, metric 5, localpref 100, valid, internal
+      Received Path ID 0, Local Path ID 0, version 0
+      Community: 8220:65000 8220:65050 8220:65402
+      Originator: 212.74.91.41, Cluster list: 212.74.94.242
+  Path #15: Received by speaker 0
+  Not advertised to any peer
+  15169
+    212.74.91.6 (metric 107660) from 212.74.94.254 (212.74.91.6)
+      Origin IGP, metric 5, localpref 100, valid, internal
+      Received Path ID 0, Local Path ID 0, version 0
+      Community: 8220:65000 8220:65110 8220:65402
+      Originator: 212.74.91.6, Cluster list: 212.74.94.254

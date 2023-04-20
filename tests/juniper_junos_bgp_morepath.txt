@@ -1,0 +1,60 @@
+
+inet.0: 997252 destinations, 3066172 routes (639719 active, 0 holddown, 1647096 hidden)
+8.8.8.0/24 (6 entries, 1 announced)
+        *BGP    Preference: 170/-101
+                Next hop type: Router, Next hop index: 787
+                Address: 0x882c59c
+                Next-hop reference count: 7267
+                Source: 212.74.88.189
+                Next hop: 212.74.88.189 via ae1.0, selected
+                Session Id: 0x161
+                State: <Active Ext>
+                Peer AS: 15169
+                Age: 2d 7:32:49         Metric: 5
+                Validation State: valid
+                Task: BGP_15169_8220.212.74.88.189
+                Announcement bits (4): 0-KRT 7-BGP_RT_Background 8-Resolve tree 5 9-RT
+                AS path: 15169 I
+                Communities: 8220:65000 8220:65030 8220:65402
+                Accepted
+                Localpref: 100
+                Router ID: 74.125.253.7
+                Thread: junos-main
+         BGP    Preference: 170/-101
+                Next hop type: Router, Next hop index: 946
+                Address: 0x100d881c
+                Next-hop reference count: 156835
+                Source: 80.81.193.114
+                Next hop: 80.81.193.114 via ae2.0, selected
+                Session Id: 0x279
+                State: <Ext Changed>
+                Inactive reason: AS path
+                Peer AS:  6453
+                Age: 2d 7:32:16         Metric: 5
+                Validation State: valid
+                Task: BGP_6453_8220.80.81.193.114
+                AS path: 6453 15169 I
+                Communities: 8220:64006 8220:65000 8220:65030 8220:65401
+                Accepted
+                Localpref: 100
+                Router ID: 66.110.10.66
+                Thread: junos-main
+         BGP    Preference: 170/-101
+                Next hop type: Router, Next hop index: 947
+                Address: 0x881f21c
+                Next-hop reference count: 86828
+                Source: 80.81.192.33
+                Next hop: 80.81.192.33 via ae2.0, selected
+                Session Id: 0x1b3
+                State: <Ext Changed>
+                Inactive reason: AS path
+                Peer AS:  1273
+                Age: 2d 7:32:15         Metric: 5
+                Validation State: valid
+                Task: BGP_1273_8220.80.81.192.33
+                AS path: 1273 15169 I
+                Communities: 8220:64006 8220:65000 8220:65030 8220:65401
+                Accepted
+                Localpref: 100
+                Router ID: 195.2.1.57
+                Thread: junos-main

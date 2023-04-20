@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Looking Glass
+{% endblock %}
+{% block page_title %}
+  Multi-Ping
+{% endblock %}
+
+{% block content %}
+  <div class="row mt-4">
+    <div class="col">
+      <form method="post">
+        {{ form.csrf_token }}
+        <div class="row align-items-start">
+          <div class="col-12 col-md mt-3 mt-md-2">
+            {{ form.locations.label(class = 'form-label') }}
+
+            {% if form.locations.errors %}
+              {{ form.locations(class = 'form-select is-invalid', size = '8') }}
+              <div class="invalid-feedback">
+                {% for error in form.locations.errors %}
+                  {{ error }}
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.locations(class = 'form-select', size ='8') }}
+            {% endif %}
+          </div>
+
+          <div class="col-12 col-md mt-3 mt-md-2">
+            {{ form.ipaddresses.label(class = 'form-label') }}
+
+            {% if form.ipaddresses.errors %}
+              {{ form.ipaddresses(class = 'form-control py-0 is-invalid', rows='8') }}
+              <div class="invalid-feedback">
+                {% for error in form.ipaddresses.errors %}
+                  {{ error }}
+                {% endfor %}
+              </div>
+            {% else %}
+              {{ form.ipaddresses(class = 'form-control py-0', rows='8') }}
+            {% endif %}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-md-6 my-3 d-flex justify-content-md-start">
+            <div class="form-check form-switch">
+              {{ form.raw_output(class="form-check-input", type="checkbox", role="switch", id="flexSwitchCheckDefault") }}
+              {{ form.raw_output.label(class = 'form-check-label', for = 'flexSwitchCheckDefault') }}
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 my-3 d-flex justify-content-md-end">
+            <button type="submit" id="submit" class="btn btn-dark">
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  {% if results %}
+    {% include 'results/ping_multi.html' %}
+  {% endif %}
+{% endblock %}

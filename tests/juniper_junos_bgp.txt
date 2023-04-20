@@ -1,0 +1,34 @@
+inet.0: 671801 destinations, 672216 routes (82422 active, 0 holddown, 589379 hidden)
+5.1.96.0/21 (1 entry, 1 announced)
+        *BGP    Preference: 170/-112
+                Next hop type: Indirect, Next hop index: 0
+                Address: 0x8818fdc
+                Next-hop reference count: 1691
+                Source: 212.74.94.153
+                Next hop type: Router, Next hop index: 5006
+                Next hop: 212.74.67.86 via et-0/1/0.0, selected
+                Label operation: Push 26977
+                Label TTL action: no-prop-ttl
+                Load balance label: Label 26977: None; 
+                Label element ptr: 0x8acd710
+                Label parent element ptr: 0x0
+                Label element references: 69
+                Label element child references: 68
+                Label element lsp id: 0
+                Session Id: 0x140
+                Protocol next hop: 212.74.94.251
+                Indirect next hop: 0x88df908 1048594 INH Session ID: 0x155
+                State: <Active Int Ext>
+                Peer AS:  8220
+                Age: 2d 8:03:07 	Metric: 0 	Metric2: 211050 
+                Validation State: valid 
+                Task: BGP_8220_8220.212.74.94.153
+                Announcement bits (4): 0-KRT 6-BGP_RT_Background 7-Resolve tree 5 9-RT 
+                AS path: 15576 198385 I  (Originator)
+                Cluster list:  212.74.94.153
+                Originator ID: 212.74.94.251
+                Communities: 8220:63010 8220:63103 8220:63308 8220:65000 8220:65110 8220:65403 15576:400 15576:500 15576:512
+                Accepted
+                Localpref: 111
+                Router ID: 212.74.94.153
+                Thread: junos-main 
