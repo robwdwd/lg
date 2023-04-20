@@ -41,9 +41,9 @@ by changing CONFIG_FILE in the .env file.
 The config file contains the list of cities, devices and cli commands
 to run on each device type.
 
-Any device type supported by netmiko is supported by the looking glass.
+Any device type supported by scrapli is supported by the looking glass.
 To find all the device types look
-[here](https://github.com/ktbyers/netmiko/blob/develop/PLATFORMS.md)
+[here](https://carlmontanari.github.io/scrapli/user_guide/basic_usage/)
 
 Every location needs a device (hostname), the device type, the full name of the
 location, a region and a source interface or ip address (for traceroute and
