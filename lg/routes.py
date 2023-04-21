@@ -6,7 +6,8 @@
 #
 """Setup routes."""
 
-from starlette.routing import Route
+from starlette.routing import Route, Mount
+from starlette.staticfiles import StaticFiles
 
 from lg.home import home
 from lg.ping_multi import ping_multi
@@ -15,4 +16,7 @@ from lg.ping_multi import ping_multi
 routes = [
     Route("/", endpoint=home, name="home", methods=["GET", "POST"]),
     Route("/pingmulti", endpoint=ping_multi, name="ping_multi", methods=["GET", "POST"]),
+    Mount('/node', app=StaticFiles(directory='node_modules'), name="node"),
+    Mount('/js', app=StaticFiles(directory='js'), name="js"),
+    Mount('/css', app=StaticFiles(directory='css'), name="css")
 ]

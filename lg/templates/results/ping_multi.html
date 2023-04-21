@@ -18,17 +18,17 @@
         <div class="card-body">
           {% if results.raw_output %}
 
-            <table class="table table-hover table-sm">
+            <table class="table is-striped is-hoverable">
               <thead>
                 <tr>
-                  <th scope="col">Location</th>
-                  <th scope="col">Output</th>
+                  <th>Location</th>
+                  <th>Output</th>
                 </tr>
               </thead>
               <tbody>
                 {% for location_name, output in results.devices.items() %}
                   <tr>
-                    <th scope="row">{{location_name}}</th>
+                    <th>{{location_name}}</th>
                     <td>
                       <pre><code>{{output}}</code></pre>
                     </td>
@@ -39,17 +39,17 @@
 
           {% else %}
 
-            <table class="table table-hover table-sm">
+            <table class="table is-striped is-hoverable">
               <thead>
                 <tr>
-                  <th scope="col">Location</th>
-                  <th scope="col">Destination</th>
-                  <th scope="col">Packet Loss</th>
-                  <th scope="col">Minimum RTT</th>
-                  <th scope="col">Average RTT</th>
-                  <th scope="col">Maximum RTT</th>
-                  <th scope="col">Packet Count</th>
-                  <th scope="col">Packet Size</th>
+                  <th>Location</th>
+                  <th>Destination</th>
+                  <th>Packet Loss</th>
+                  <th>Minimum RTT</th>
+                  <th>Average RTT</th>
+                  <th>Maximum RTT</th>
+                  <th>Packet Count</th>
+                  <th>Packet Size</th>
                 </tr>
               </thead>
               <tbody>
@@ -58,7 +58,7 @@
                   .items() %}
                   {% for destination, ping in output.items() %}
                     <tr>
-                      <th scope="row">{{location_name}}</th>
+                      <th>{{location_name}}</th>
                       <td>{{destination}}</td>
                       <td>{{ping.packet_loss}}%</td>
                       <td>{{ping.rtt_min|default('-')}}</td>

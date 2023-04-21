@@ -8,76 +8,90 @@
 {% endblock %}
 
 {% block content %}
-  <div class="row mt-4">
-    <div class="col">
-      <form method="post">
-        {{ form.csrf_token }}
-        <div class="row gx-3 gy-2 align-items-start">
-          <div class="col-12 col-md">
-            {{ form.location.label(class = 'form-label') }}
 
-            {% if form.location.errors %}
-              {{ form.location(class = 'form-select is-invalid') }}
-              <div class="invalid-feedback">
-                {% for error in form.location.errors %}
-                  {{ error }}
-                {% endfor %}
-              </div>
-            {% else %}
-              {{ form.location(class = 'form-select') }}
-            {% endif %}
-
-          </div>
-          <div class="col-12 col-md">
-            {{ form.command.label(class = 'form-label') }}
-
-            {% if form.command.errors %}
-              {{ form.command(class = 'form-select is-invalid') }}
-              <div class="invalid-feedback">
-                {% for error in form.command.errors %}
-                  {{ error }}
-                {% endfor %}
-              </div>
-            {% else %}
-              {{ form.command(class = 'form-select') }}
-            {% endif %}
-
-          </div>
-
-          <div class="col-12 col-md">
-            {{ form.ipaddress.label(class = 'form-label') }}
-
-            {% if form.ipaddress.errors %}
-              {{ form.ipaddress(class = 'form-control is-invalid') }}
-              <div class="invalid-feedback">
-                {% for error in form.ipaddress.errors %}
-                  {{ error }}
-                {% endfor %}
-              </div>
-            {% else %}
-              {{ form.ipaddress(class = 'form-control') }}
-            {% endif %}
-
-          </div>
-        </div>
-        <div class="row gx-3 gy-2 d-flex justify-content-md-end">
-          <div class="col-12 col-md-2 my-3 d-flex justify-content-md-start">
-            <div class="form-check form-switch">
-              {{ form.raw_output(class="form-check-input", type="checkbox", role="switch", id="flexSwitchCheckDefault") }}
-              {{ form.raw_output.label(class = 'form-check-label', for = 'flexSwitchCheckDefault') }}
+  <form method="post">
+    {{ form.csrf_token }}
+    <div class="columns">
+      <div class="column">
+        <div class="field">
+          {{ form.location.label(class = 'label') }}
+          <div class="control is-expanded has-icons-left">
+            <div class="select is-fullwidth{% if form.location.errors %} is-danger{% endif %}">
+              {{ form.location }}
+            </div>
+            <div class="icon is-small is-left">
+              <i class="fa-solid fa-globe"></i>
             </div>
           </div>
-          <div class="col-12 col-md-2 my-3 d-flex justify-content-md-end">
-            <button type="submit" id="submit" class="btn btn-dark">
-              Submit
-            </button>
+        </div>
+        {% if form.location.errors %}
+          <p class="help is-danger">
+            {% for error in form.location.errors %}
+              {{ error }}
+            {% endfor %}
+          </p>
+        {% endif %}
+      </div>
+      <div class="column">
+        <div class="field">
+          {{ form.command.label(class = 'label') }}
+          <div class="control is-expanded has-icons-left">
+            <div class="select is-fullwidth{% if form.command.errors %} is-danger{% endif %}">
+              {{ form.command }}
+            </div>
+            <div class="icon is-small is-left">
+              <i class="fa-solid fa-terminal"></i>
+            </div>
           </div>
         </div>
-      </form>
-    </div>
-  </div>
+        {% if form.command.errors %}
+          <p class="help is-danger">
+            {% for error in form.command.errors %}
+              {{ error }}
+            {% endfor %}
+          </p>
+        {% endif %}
+      </div>
 
+      <div class="column">
+        <div class="field">
+          {{ form.ipaddress.label(class = 'label') }}
+          <div class="control is-expanded has-icons-left">
+            {% if form.ipaddress.errors %}
+              {{ form.ipaddress(class = 'input is-danger') }}
+            {% else %}
+              {{ form.ipaddress(class = 'input') }}
+            {% endif %}
+            <span class="icon is-small is-left">
+              <i class="fa-solid fa-server"></i>
+            </span>
+          </div>
+        </div>
+        {% if form.ipaddress.errors %}
+          <p class="help is-danger">
+            {% for error in form.ipaddress.errors %}
+              {{ error }}
+            {% endfor %}
+          </p>
+        {% endif %}
+      </div>
+      <div class="column is-one-fifth">
+        <label class="label">Plain Text</label>
+        <div class="field is-grouped">
+          <div class="control is-expanded ">
+            {{ form.raw_output(type = "checkbox") }}
+          </div>
+          <div class="control">
+            <button class="button is-link">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <h1>1 2 34</h1>
   {% if results %}
+
     {% include 'results/index.html' %}
   {% endif %}
 {% endblock %}

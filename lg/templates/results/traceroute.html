@@ -2,18 +2,18 @@
   <p class="lead">Traceroute to
     {{destination}}</p>
 
-  <table class="table table-hover table-sm">
+  <table class="table is-striped is-hoverable">
     <thead>
       <tr>
-        <th scope="col">Hop #</th>
-        <th scope="col">Hop</th>
-        <th scope="col">Details</th>
+        <th>Hop #</th>
+        <th>Hop</th>
+        <th>Details</th>
       </tr>
     </thead>
     <tbody>
       {% for hop in hops.hops %}
         <tr>
-          <th scope="row">{{hop.hop_number|default('-')}}</th>
+          <th>{{hop.hop_number|default('-')}}</th>
           <td>
             {% if hop.fqdn %}
               {{hop.fqdn}}

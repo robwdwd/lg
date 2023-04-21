@@ -14,32 +14,32 @@
         {{ form.csrf_token }}
         <div class="row align-items-start">
           <div class="col-12 col-md mt-3 mt-md-2">
-            {{ form.locations.label(class = 'form-label') }}
+            {{ form.locations.label(class = 'label') }}
 
             {% if form.locations.errors %}
-              {{ form.locations(class = 'form-select is-invalid', size = '8') }}
-              <div class="invalid-feedback">
+              {{ form.locations(class = 'select is-danger', size = '8') }}
+              <div class="help is-danger">
                 {% for error in form.locations.errors %}
                   {{ error }}
                 {% endfor %}
               </div>
             {% else %}
-              {{ form.locations(class = 'form-select', size ='8') }}
+              {{ form.locations(class = 'select', size ='8') }}
             {% endif %}
           </div>
 
           <div class="col-12 col-md mt-3 mt-md-2">
-            {{ form.ipaddresses.label(class = 'form-label') }}
+            {{ form.ipaddresses.label(class = 'label') }}
 
             {% if form.ipaddresses.errors %}
-              {{ form.ipaddresses(class = 'form-control py-0 is-invalid', rows='8') }}
-              <div class="invalid-feedback">
+              {{ form.ipaddresses(class = 'input py-0 is-invalid', rows='8') }}
+              <div class="help is-danger">
                 {% for error in form.ipaddresses.errors %}
                   {{ error }}
                 {% endfor %}
               </div>
             {% else %}
-              {{ form.ipaddresses(class = 'form-control py-0', rows='8') }}
+              {{ form.ipaddresses(class = 'input py-0', rows='8') }}
             {% endif %}
           </div>
         </div>

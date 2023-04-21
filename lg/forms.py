@@ -8,7 +8,7 @@
 import ipaddress
 from starlette_wtf import StarletteForm
 from wtforms import SelectField, StringField, ValidationError, BooleanField, TextAreaField, SelectMultipleField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, Regexp
 from lg import settings
 
 
@@ -76,7 +76,7 @@ class PingMultiForm(StarletteForm):
 class HomeForm(StarletteForm):
     """Form for Home Page."""
 
-    location = SelectField("Location", choices=get_locations(), validators=[DataRequired()])
+    location = SelectField("Location", choices=get_locations(), validators=[DataRequired(), Regexp('/\d')])
     command = SelectField(
         "Command",
         choices=[("ping", "Ping"), ("traceroute", "Traceroute"), ("bgp", "BGP Route")],
