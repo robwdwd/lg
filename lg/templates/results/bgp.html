@@ -1,11 +1,11 @@
 {% if not results.output %}
 
-  <p class="lead">No route found.</p>
+  <p class="is-size-5">No route found.</p>
 
 {% else %}
 
 {% for prefix, details in results.output.items() %}
-  <p class="lead">BGP route for {{prefix}}</p>
+  <p class="is-size-5">BGP route for {{prefix}}</p>
 
   <table class="table is-striped table-hover">
     <thead>
