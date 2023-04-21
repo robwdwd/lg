@@ -1,8 +1,7 @@
 {% for destination, hops in results.output.items() %}
-  <p class="is-size-5">Traceroute to
-    {{destination}}</p>
+  <p class="subtitle is-5">Traceroute to {{destination}}</p>
 
-  <table class="table is-striped is-hoverable">
+  <table class="table is-striped is-hoverable is-fullwidth">
     <thead>
       <tr>
         <th>Hop #</th>

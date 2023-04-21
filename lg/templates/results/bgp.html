@@ -1,39 +1,37 @@
 {% if not results.output %}
-
   <p class="is-size-5">No route found.</p>
-
 {% else %}
 
-{% for prefix, details in results.output.items() %}
-  <p class="is-size-5">BGP route for {{prefix}}</p>
+  {% for prefix, details in results.output.items() %}
+    <p class="subtitle is-5">BGP route for {{prefix}}</p>
 
-  <table class="table is-striped table-hover">
-    <thead>
-      <tr>
-        <th>Path</th>
-        <th>AS Path</th>
-        <th>Next Hop</th>
-        <th>LP</th>
-        <th>Metric</th>
-        <th>Communities</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for path in details.paths %}
-        <tr{% if path.best_path %} class="is-selected"{% endif %}>
-          <th>{{loop.index}}</th>
-          <td>{{path.as_path}}</td>
-          <td>{{path.next_hop}}</td>
-          <td>{{path.local_pref}}</td>
-          <td>{{path.metric}}</td>
-          <td>
-            {% for community in path.communities %}
-                {{ community }}<br />
-            {% endfor %}
-          </td>
+    <table class="table is-striped is-hoverable is-fullwidth">
+      <thead>
+        <tr>
+          <th>Path</th>
+          <th>AS Path</th>
+          <th>Next Hop</th>
+          <th>LP</th>
+          <th>Metric</th>
+          <th>Communities</th>
         </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-{% endfor %}
+      </thead>
+      <tbody>
+        {% for path in details.paths %}
+          <tr{% if path.best_path %} class="is-selected" {% endif %}>
+            <th>{{loop.index}}</th>
+            <td>{{path.as_path}}</td>
+            <td>{{path.next_hop}}</td>
+            <td>{{path.local_pref}}</td>
+            <td>{{path.metric}}</td>
+            <td>
+              {% for community in path.communities %}
+                {{ community }}<br/>
+              {% endfor %}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endfor %}
 {% endif %}

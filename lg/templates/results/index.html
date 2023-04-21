@@ -1,11 +1,13 @@
 {% if results.errors %}
   <div class="box mt-4">
-      <p class="is-family-monospace is-danger">{{results.errors}}</p>
+    <p class="is-family-monospace is-danger">{{results.errors}}</p>
   </div>
 {% else %}
 
   <div class="card mt-4">
-    <header class="card-header"><p class="card-header-title">Results</p></header>
+    <header class="card-header">
+      <p class="card-header-title">Results</p>
+    </header>
     <div class="card-content">
       <div class="content">
         {% if results.raw %}
@@ -19,7 +21,7 @@
           {% elif results.command == 'bgp' %}
             {% include "results/bgp.html" %}
           {% else %}
-            <pre><code>Unknown command.</code></pre>
+            <pre><code>unknown command.</code></pre>
           {% endif %}
 
         {% endif %}
