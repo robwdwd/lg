@@ -6,27 +6,25 @@
   </div>
 {% else %}
 
-  <div class="row mt-4">
-    <div class="col">
-      <div class="card">
-        <h5 class="card-header">Results</h5>
-        <div class="card-body">
-          {% if results.raw %}
-            <pre><code>{{results.output}}</code></pre>
+  <div class="card">
+    <header class="card-header"><p class="card-header-title">Results</p></header>
+    <div class="card-content">
+      <div class="content">
+        {% if results.raw %}
+          <pre><code>{{results.output}}</code></pre>
+        {% else %}
+
+          {% if results.command == 'ping' %}
+            {% include "results/ping.html" %}
+          {% elif results.command == 'traceroute' %}
+            {% include "results/traceroute.html" %}
+          {% elif results.command == 'bgp' %}
+            {% include "results/bgp.html" %}
           {% else %}
-
-            {% if results.command == 'ping' %}
-              {% include "results/ping.html" %}
-            {% elif results.command == 'traceroute' %}
-              {% include "results/traceroute.html" %}
-            {% elif results.command == 'bgp' %}
-              {% include "results/bgp.html" %}
-            {% else %}
-              <pre><code>unknown command.</code></pre>
-            {% endif %}
-
+            <pre><code>Unknown command.</code></pre>
           {% endif %}
-        </div>
+
+        {% endif %}
       </div>
     </div>
   </div>
