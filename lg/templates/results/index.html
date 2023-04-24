@@ -1,8 +1,4 @@
-{% if results.errors %}
-  <div class="box mt-4">
-    <p class="is-family-monospace is-danger">{{results.errors}}</p>
-  </div>
-{% else %}
+{% if not results.errors %}
 
   <div class="card mt-4">
     <header class="card-header">

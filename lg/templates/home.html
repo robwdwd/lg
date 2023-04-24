@@ -9,6 +9,16 @@
 
 {% block content %}
 
+  {% if results.errors %}
+    <div class="notification">
+      <button class="delete"></button>
+      {% for error in results.errors %}
+        {{error}}<br/>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+
   <form method="post">
     {{ form.csrf_token }}
     <div class="columns">
