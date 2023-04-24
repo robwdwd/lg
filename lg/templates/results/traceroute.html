@@ -1,30 +1,30 @@
 {% for destination, hops in results.output.items() %}
   <p class="subtitle is-5">Traceroute to {{destination}}</p>
-<div class="table-container">
-  <table class="table is-striped is-hoverable is-fullwidth">
-    <thead>
-      <tr>
-        <th>Hop #</th>
-        <th>Hop</th>
-        <th>Details</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for hop in hops.hops %}
+  <div class="table-container">
+    <table class="table is-striped is-hoverable is-fullwidth">
+      <thead>
         <tr>
-          <th>{{hop.hop_number|default('-')}}</th>
-          <td>
-            {% if hop.fqdn %}
-              {{hop.fqdn}}
-              ({{hop.ip_address|default('-')}})
-            {% else %}
-              {{hop.ip_address|default('-')}}
-            {% endif %}
-          </td>
-          <td>{{hop.rtt}}</td>
+          <th>Hop #</th>
+          <th>Hop</th>
+          <th>Details</th>
         </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-</div>
+      </thead>
+      <tbody>
+        {% for hop in hops.hops %}
+          <tr>
+            <th>{{hop.hop_number|default('-')}}</th>
+            <td>
+              {% if hop.fqdn %}
+                {{hop.fqdn}}
+                ({{hop.ip_address|default('-')}})
+              {% else %}
+                {{hop.ip_address|default('-')}}
+              {% endif %}
+            </td>
+            <td>{{hop.rtt}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 {% endfor %}

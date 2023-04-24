@@ -1,28 +1,28 @@
 <div class="table-container">
-<table class="table is-striped is-hoverable is-fullwidth">
-  <thead>
-    <tr>
-      <th>Destination</th>
-      <th>Packet Loss</th>
-      <th>Minimum RTT</th>
-      <th>Average RTT</th>
-      <th>Maximum RTT</th>
-      <th>Packet Count</th>
-      <th>Packet Size</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for destination, ping in results.output.items() %}
+  <table class="table is-striped is-hoverable is-fullwidth">
+    <thead>
       <tr>
-        <th>{{destination}}</th>
-        <td>{{ping.packet_loss}}%</td>
-        <td>{{ping.rtt_min|default('-')}}</td>
-        <td>{{ping.rtt_avg|default('-')}}</td>
-        <td>{{ping.rtt_max|default('-')}}</td>
-        <td>{{ping.packet_count}}</td>
-        <td>{{ping.packet_size}}</td>
+        <th>Destination</th>
+        <th>Packet Loss</th>
+        <th>Minimum RTT</th>
+        <th>Average RTT</th>
+        <th>Maximum RTT</th>
+        <th>Packet Count</th>
+        <th>Packet Size</th>
       </tr>
-    {% endfor %}
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      {% for destination, ping in results.output.items() %}
+        <tr>
+          <th>{{destination}}</th>
+          <td>{{ping.packet_loss}}%</td>
+          <td>{{ping.rtt_min|default('-')}}</td>
+          <td>{{ping.rtt_avg|default('-')}}</td>
+          <td>{{ping.rtt_max|default('-')}}</td>
+          <td>{{ping.packet_count}}</td>
+          <td>{{ping.packet_size}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </div>

@@ -7,59 +7,59 @@
     <div class="card-content">
       <div class="content">
         {% if results.raw_output %}
-<div class="table-container">
-          <table class="table is-striped is-hoverable is-fullwidth">
-            <thead>
-              <tr>
-                <th>Location</th>
-                <th>Output</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for location_name, output in results.devices.items() %}
+          <div class="table-container">
+            <table class="table is-striped is-hoverable is-fullwidth">
+              <thead>
                 <tr>
-                  <th>{{location_name}}</th>
-                  <td class="is-family-code is-size-7" style="white-space: pre-line;">
-                    {{output}}
-                  </td>
+                  <th>Location</th>
+                  <th>Output</th>
                 </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-</div>
-        {% else %}
-<div class="table-container">
-          <table class="table is-striped is-hoverable is-fullwidth">
-            <thead>
-              <tr>
-                <th>Location</th>
-                <th>Destination</th>
-                <th>Packet Loss</th>
-                <th>Minimum RTT</th>
-                <th>Average RTT</th>
-                <th>Maximum RTT</th>
-                <th>Packet Count</th>
-                <th>Packet Size</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for location_name, output in results.devices.items() %}
-                {% for destination, ping in output.items() %}
+              </thead>
+              <tbody>
+                {% for location_name, output in results.devices.items() %}
                   <tr>
                     <th>{{location_name}}</th>
-                    <td>{{destination}}</td>
-                    <td>{{ping.packet_loss}}%</td>
-                    <td>{{ping.rtt_min|default('-')}}</td>
-                    <td>{{ping.rtt_avg|default('-')}}</td>
-                    <td>{{ping.rtt_max|default('-')}}</td>
-                    <td>{{ping.packet_count}}</td>
-                    <td>{{ping.packet_size}}</td>
+                    <td class="is-family-code is-size-7" style="white-space: pre-line;">
+                      {{output}}
+                    </td>
                   </tr>
                 {% endfor %}
-              {% endfor %}
-            </tbody>
-          </table>
-</div>
+              </tbody>
+            </table>
+          </div>
+        {% else %}
+          <div class="table-container">
+            <table class="table is-striped is-hoverable is-fullwidth">
+              <thead>
+                <tr>
+                  <th>Location</th>
+                  <th>Destination</th>
+                  <th>Packet Loss</th>
+                  <th>Minimum RTT</th>
+                  <th>Average RTT</th>
+                  <th>Maximum RTT</th>
+                  <th>Packet Count</th>
+                  <th>Packet Size</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for location_name, output in results.devices.items() %}
+                  {% for destination, ping in output.items() %}
+                    <tr>
+                      <th>{{location_name}}</th>
+                      <td>{{destination}}</td>
+                      <td>{{ping.packet_loss}}%</td>
+                      <td>{{ping.rtt_min|default('-')}}</td>
+                      <td>{{ping.rtt_avg|default('-')}}</td>
+                      <td>{{ping.rtt_max|default('-')}}</td>
+                      <td>{{ping.packet_count}}</td>
+                      <td>{{ping.packet_size}}</td>
+                    </tr>
+                  {% endfor %}
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
         {% endif %}
       </div>
     </div>
