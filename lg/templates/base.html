@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="has-navbar-fixed-top">
 
   <head>
     <meta charset="utf-8"/>
@@ -8,10 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
 
     <title>
-      Looking Glass ::
-      {% block title %}
-        Home
-      {% endblock %}
+      Looking Glass ::{% block title %} Home{% endblock %}
     </title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
@@ -24,11 +21,6 @@
     {% include 'navmenu.html' %}
     <section class="section">
       <div class="container">
-
-        <h3 class="title my-6">
-          {% block page_title %}{% endblock %}
-        </h3>
-
         {% block content %}{% endblock %}
       </div>
     </section>

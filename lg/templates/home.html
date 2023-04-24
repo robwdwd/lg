@@ -15,88 +15,107 @@
       {{results.errors}}
     </div>
   {% endif %}
-
-  <form method="post">
-    {{ form.csrf_token }}
-    <div class="columns">
-      <div class="column">
-        <div class="field">
-          {{ form.location.label(class = 'label') }}
-          <div class="control is-expanded has-icons-left">
-            <div class="select is-fullwidth{% if form.location.errors %} is-danger{% endif %}">
-              {{ form.location }}
-            </div>
-            <div class="icon is-left">
-              <i class="fa-solid fa-globe"></i>
-            </div>
-          </div>
-        </div>
-        {% if form.location.errors %}
-          <p class="help is-danger">
-            {% for error in form.location.errors %}
-              {{ error }}
-            {% endfor %}
-          </p>
-        {% endif %}
-      </div>
-      <div class="column">
-        <div class="field">
-          {{ form.command.label(class = 'label') }}
-          <div class="control is-expanded has-icons-left">
-            <div class="select is-fullwidth{% if form.command.errors %} is-danger{% endif %}">
-              {{ form.command }}
-            </div>
-            <div class="icon is-small is-left">
-              <i class="fa-solid fa-terminal"></i>
-            </div>
-          </div>
-        </div>
-        {% if form.command.errors %}
-          <p class="help is-danger">
-            {% for error in form.command.errors %}
-              {{ error }}
-            {% endfor %}
-          </p>
-        {% endif %}
-      </div>
-
-      <div class="column">
-        <div class="field">
-          {{ form.ipaddress.label(class = 'label') }}
-          <div class="control is-expanded has-icons-left">
-            {% if form.ipaddress.errors %}
-              {{ form.ipaddress(class = 'input is-danger') }}
-            {% else %}
-              {{ form.ipaddress(class = 'input') }}
-            {% endif %}
-            <span class="icon is-small is-left">
-              <i class="fa-solid fa-server"></i>
+  <div class="columns is-desktop">
+    <div class="column is-one-third is-one-quarter-desktop is-one-fifth-fullhd">
+      <div class="card">
+        <header class="card-header">
+          <button class="card-header-icon" aria-label="more options">
+            <span class="icon">
+              <i class="fa-solid fa-table-list"></i>
             </span>
-          </div>
-        </div>
-        {% if form.ipaddress.errors %}
-          <p class="help is-danger">
-            {% for error in form.ipaddress.errors %}
-              {{ error }}
-            {% endfor %}
+          </button>
+          <p class="card-header-title">
+            Looking Glass
           </p>
-        {% endif %}
-      </div>
-      <div class="column is-one-fifth">
-        <label class="label">Plain Text</label>
-        <div class="field is-grouped">
-          <div class="control is-expanded ">
-            {{ form.raw_output(type = "checkbox") }}
-          </div>
-          <div class="control">
-            <button class="button is-dark">Submit</button>
-          </div>
+        </header>
+        <div class="card-content">
+          <form method="post">
+            {{ form.csrf_token }}
+
+            <div class="field">
+              {{ form.location.label(class = 'label') }}
+              <div class="control is-expanded has-icons-left">
+                <div class="select is-fullwidth{% if form.location.errors %} is-danger{% endif %}">
+                  {{ form.location }}
+                </div>
+                <div class="icon is-left">
+                  <i class="fa-solid fa-globe"></i>
+                </div>
+              </div>
+              {% if form.location.errors %}
+                <p class="help is-danger">
+                  {% for error in form.location.errors %}
+                    {{ error }}
+                  {% endfor %}
+                </p>
+              {% endif %}
+            </div>
+
+            <div class="field">
+              {{ form.command.label(class = 'label') }}
+              <div class="control is-expanded has-icons-left">
+                <div class="select is-fullwidth{% if form.command.errors %} is-danger{% endif %}">
+                  {{ form.command }}
+                </div>
+                <div class="icon is-small is-left">
+                  <i class="fa-solid fa-terminal"></i>
+                </div>
+              </div>
+              {% if form.command.errors %}
+                <p class="help is-danger">
+                  {% for error in form.command.errors %}
+                    {{ error }}
+                  {% endfor %}
+                </p>
+              {% endif %}
+            </div>
+
+            <div class="field">
+              {{ form.ipaddress.label(class = 'label') }}
+              <div class="control is-expanded has-icons-left">
+                {% if form.ipaddress.errors %}
+                  {{ form.ipaddress(class = 'input is-danger') }}
+                {% else %}
+                  {{ form.ipaddress(class = 'input') }}
+                {% endif %}
+                <span class="icon is-small is-left">
+                  <i class="fa-solid fa-server"></i>
+                </span>
+              </div>
+              {% if form.ipaddress.errors %}
+                <p class="help is-danger">
+                  {% for error in form.ipaddress.errors %}
+                    {{ error }}
+                  {% endfor %}
+                </p>
+              {% endif %}
+            </div>
+
+            <div class="field">
+              <div class="control">
+                <label class="checkbox">
+                  {{ form.raw_output(type = "checkbox") }}
+                  Plain Text Output
+                </label>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="control">
+                <button class="button is-dark">Submit</button>
+              </div>
+            </div>
+
+          </form>
         </div>
       </div>
     </div>
-  </form>
+    <div class="column">
 
-  {% if results %}
-    {% include 'results/index.html' %}
-  {% endif %}
+      {% if results %}
+        {% include 'results/index.html' %}
+      {% endif %}
+
+    </div>
+  </div>
 {% endblock %}

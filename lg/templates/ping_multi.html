@@ -18,59 +18,74 @@
     </div>
   {% endif %}
 
-  <div class="columns">
-    <div class="column is-one-fifth">
-      <form method="post">
-        {{ form.csrf_token }}
+  <div class="columns is-desktop">
+    <div class="column is-one-third is-one-quarter-desktop is-one-fifth-fullhd">
+      <div class="card">
+        <header class="card-header">
+          <button class="card-header-icon" aria-label="more options">
+            <span class="icon">
+              <i class="fa-solid fa-table-list"></i>
+            </span>
+          </button>
+          <p class="card-header-title">
+            Multi-Ping
+          </p>
+        </header>
+        <div class="card-content">
+          <form method="post">
+            {{ form.csrf_token }}
 
-        <div class="field">
-          {{ form.locations.label(class = 'label') }}
-          <div class="control is-expanded">
-            <div class="select is-multiple is-fullwidth{% if form.locations.errors %} is-danger{% endif %}">
-              {{ form.locations(size=8) }}
+            <div class="field">
+              {{ form.locations.label(class = 'label') }}
+              <div class="control is-expanded">
+                <div class="select is-multiple is-fullwidth{% if form.locations.errors %} is-danger{% endif %}">
+                  {{ form.locations(size=8) }}
+                </div>
+              </div>
+              {% if form.locations.errors %}
+                <p class="help is-danger">
+                  {% for error in form.locations.errors %}
+                    {{ error }}
+                  {% endfor %}
+                </p>
+              {% endif %}
             </div>
-          </div>
-          {% if form.locations.errors %}
-            <p class="help is-danger">
-              {% for error in form.locations.errors %}
-                {{ error }}
-              {% endfor %}
-            </p>
-          {% endif %}
-        </div>
 
-        <div class="field">
-          {{ form.ipaddresses.label(class = 'label') }}
-          <div class="control is-expanded">
-            {% if form.ipaddresses.errors %}
-              {{ form.ipaddresses(class="textarea is-danger", rows=8) }}
-            {% else %}
-              {{ form.ipaddresses(class="textarea", rows=8) }}
-            {% endif %}
-          </div>
-          {% if form.ipaddresses.errors %}
-            <p class="help is-danger">
-              {% for error in form.ipaddresses.errors %}
-                {{ error }}
-              {% endfor %}
-            </p>
-          {% endif %}
-        </div>
+            <div class="field">
+              {{ form.ipaddresses.label(class = 'label') }}
+              <div class="control is-expanded">
+                {% if form.ipaddresses.errors %}
+                  {{ form.ipaddresses(class="textarea is-danger", rows=8) }}
+                {% else %}
+                  {{ form.ipaddresses(class="textarea", rows=8) }}
+                {% endif %}
+              </div>
+              {% if form.ipaddresses.errors %}
+                <p class="help is-danger">
+                  {% for error in form.ipaddresses.errors %}
+                    {{ error }}
+                  {% endfor %}
+                </p>
+              {% endif %}
+            </div>
 
-        <div class="field">
-          <div class="control">
-            <label class="checkbox">
-              {{ form.raw_output(type = "checkbox") }}
-              Plain Text Output
-            </label>
-          </div>
-        </div>
+            <div class="field">
+              <div class="control">
+                <label class="checkbox">
+                  {{ form.raw_output(type = "checkbox") }}
+                  Plain Text Output
+                </label>
+              </div>
+            </div>
 
-        <div class="control">
-          <button class="button is-dark">Submit</button>
+            <div class="field">
+              <div class="control">
+                <button class="button is-dark">Submit</button>
+              </div>
+            </div>
+          </form>
         </div>
-
-      </form>
+      </div>
     </div>
     <div class="column">
       {% if results %}
