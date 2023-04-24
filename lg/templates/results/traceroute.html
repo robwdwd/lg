@@ -1,6 +1,6 @@
 {% for destination, hops in results.output.items() %}
   <p class="subtitle is-5">Traceroute to {{destination}}</p>
-
+<div class="table-container">
   <table class="table is-striped is-hoverable is-fullwidth">
     <thead>
       <tr>
@@ -26,4 +26,5 @@
       {% endfor %}
     </tbody>
   </table>
+</div>
 {% endfor %}

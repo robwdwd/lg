@@ -1,13 +1,13 @@
 {% if results.devices %}
 
-  <div class="card mt-4">
+  <div class="card mt-4-tablet">
     <header class="card-header">
       <p class="card-header-title">Results</p>
     </header>
     <div class="card-content">
       <div class="content">
         {% if results.raw_output %}
-
+<div class="table-container">
           <table class="table is-striped is-hoverable is-fullwidth">
             <thead>
               <tr>
@@ -26,9 +26,9 @@
               {% endfor %}
             </tbody>
           </table>
-
+</div>
         {% else %}
-
+<div class="table-container">
           <table class="table is-striped is-hoverable is-fullwidth">
             <thead>
               <tr>
@@ -59,6 +59,7 @@
               {% endfor %}
             </tbody>
           </table>
+</div>
         {% endif %}
       </div>
     </div>
