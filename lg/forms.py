@@ -100,7 +100,7 @@ class HomeForm(StarletteForm):
         #
         try:
             if "/" in field.data:
-                ipaddress.ip_network(field.data)
+                ipaddress.ip_network(field.data, False)
             else:
                 ipaddress.ip_address(field.data)
         except ValueError as exc:

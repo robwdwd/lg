@@ -60,9 +60,9 @@ def process_bgp_output(output: dict) -> dict:
                 new_comms = []
                 for community in communities:
                     if community in com_map:
-                        new_comms.append(f"{community} [{com_map[community]}]")
+                        new_comms.append({"community": community, "map": com_map[community]})
                     else:
-                        new_comms.append(f"{community}")
+                        new_comms.append({"community": community, "map": None})
 
                 path["communities"] = new_comms
 

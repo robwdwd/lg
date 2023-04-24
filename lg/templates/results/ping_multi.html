@@ -43,7 +43,9 @@
               </tr>
             </thead>
             <tbody>
-              {% for location_name, output in results.devices.items() %}
+              {% for location_name, output in results
+                .devices
+                .items() %}
                 {% for destination, ping in output.items() %}
                   <tr>
                     <th>{{location_name}}</th>

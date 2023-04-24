@@ -2,8 +2,11 @@
   <p class="is-size-5">No route found.</p>
 {% else %}
 
-  {% for prefix, details in results.output.items() %}
-    <p class="subtitle is-5">BGP route for {{prefix}}</p>
+  {% for prefix, details in results
+    .output
+    .items() %}
+    <p class="subtitle is-5">BGP route for
+      {{prefix}}</p>
 
     <table class="table is-striped is-hoverable is-fullwidth">
       <thead>
@@ -25,9 +28,14 @@
             <td>{{path.local_pref}}</td>
             <td>{{path.metric}}</td>
             <td>
-              {% for community in path.communities %}
-                {{ community }}<br/>
-              {% endfor %}
+              <div class="tags has-addons">
+                {% for community in path.communities %}
+                  <span class="tag">{{ community.community }}</span>
+                  {% if community.map %}
+                    <span class="tag is-dark">{{ community.community }}</span>
+                  {% endif %}
+                {% endfor %}
+              </div>
             </td>
           </tr>
         {% endfor %}

@@ -1,31 +1,22 @@
-<nav class="navbar is-fixed-top is-light" role="navigation" aria-label="main navigation">
+<nav class="navbar is-fixed-top is-dark" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="{{ url_for('home')}}">
+    <div class="navbar-item">
+      <span class="icon is-large">
+        <i class="fa-solid fa-user-secret fa-2xl"></i>
+      </span>
+    </div>
 
-<span class="icon-text">
-  <span class="icon is-large">
-      <i class="fa-solid fa-user-secret fa-2xl"></i>
-  </span>
-  <span class="navbar-item is-size-4">LG</span>
-</span>
-
-    </a>
-
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarLG">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </a>
   </div>
 
-  <div id="navbarBasicExample" class="navbar-menu">
+  <div id="navbarLG" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item" href="{{ url_for('home')}}">
-        Home
-      </a>
-      <a class="navbar-item" href="{{ url_for('ping_multi')}}">
-        Multi-Ping
-      </a>
+      <a class="navbar-item" href="{{ url_for('home')}}">Home</a>
+      <a class="navbar-item" href="{{ url_for('ping_multi')}}">Multi-Ping</a>
     </div>
   </div>
 </nav>

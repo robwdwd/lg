@@ -12,10 +12,9 @@
   {% if results.errors %}
     <div class="notification is-danger">
       <button class="delete"></button>
-        {{results.errors}}
+      {{results.errors}}
     </div>
   {% endif %}
-
 
   <form method="post">
     {{ form.csrf_token }}
@@ -28,8 +27,8 @@
               {{ form.location }}
             </div>
             <div class="icon is-left">
-<i class="fa-solid fa-globe"></i>
-                </div>
+              <i class="fa-solid fa-globe"></i>
+            </div>
           </div>
         </div>
         {% if form.location.errors %}
@@ -48,7 +47,7 @@
               {{ form.command }}
             </div>
             <div class="icon is-small is-left">
-                <i class="fa-solid fa-terminal"></i>
+              <i class="fa-solid fa-terminal"></i>
             </div>
           </div>
         </div>
@@ -90,7 +89,7 @@
             {{ form.raw_output(type = "checkbox") }}
           </div>
           <div class="control">
-            <button class="button is-link">Submit</button>
+            <button class="button is-dark">Submit</button>
           </div>
         </div>
       </div>
