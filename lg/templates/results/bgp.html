@@ -7,8 +7,8 @@
     .items() %}
     <p class="subtitle is-5">BGP route for
       {{prefix}}</p>
-
-    <table class="table is-striped is-hoverable is-fullwidth">
+<div class="table-container">
+    <table class="table is-hoverable is-fullwidth">
       <thead>
         <tr>
           <th>Path</th>
@@ -16,30 +16,48 @@
           <th>Next Hop</th>
           <th>LP</th>
           <th>Metric</th>
-          <th>Communities</th>
+          <th style="width: 25%;">Communities</th>
         </tr>
       </thead>
       <tbody>
         {% for path in details.paths %}
-          <tr{% if path.best_path %} class="is-selected" {% endif %}>
-            <th>{{loop.index}}</th>
+          <tr>
+                {% if path.best_path %}
+
+            <th>
+
+<div class="tags has-addons">
+  <span class="tag">{{loop.index}}</span>
+  <span class="tag is-primary">Best</span>
+</div>
+
+            {% else %}
+            <th>
+  <span class="tag">{{loop.index}}</span>
+
+</th>
+            {% endif %}
             <td>{{path.as_path}}</td>
             <td>{{path.next_hop}}</td>
             <td>{{path.local_pref}}</td>
             <td>{{path.metric}}</td>
             <td>
-              <div class="tags has-addons">
+              <div class="tags">
                 {% for community in path.communities %}
-                  <span class="tag">{{ community.community }}</span>
                   {% if community.map %}
-                    <span class="tag is-dark">{{ community.community }}</span>
+                    <span class="tag is-info is-light" title="{{ community.community }}">{{ community.map }}</span>
+                    {% else %}
+                  <span class="tag is-light">{{ community.community }}</span>
+
                   {% endif %}
                 {% endfor %}
-              </div>
+                </div>
+
             </td>
           </tr>
         {% endfor %}
       </tbody>
     </table>
+</div>
   {% endfor %}
 {% endif %}
