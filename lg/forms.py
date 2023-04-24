@@ -76,7 +76,7 @@ class PingMultiForm(StarletteForm):
 class HomeForm(StarletteForm):
     """Form for Home Page."""
 
-    location = SelectField("Location", choices=get_locations(), validators=[DataRequired(), Regexp('/\d')])
+    location = SelectField("Location", choices=get_locations(), validators=[DataRequired()])
     command = SelectField(
         "Command",
         choices=[("ping", "Ping"), ("traceroute", "Traceroute"), ("bgp", "BGP Route")],

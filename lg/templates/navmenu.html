@@ -1,7 +1,14 @@
 <nav class="navbar is-fixed-top is-light" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="{{ url_for('home')}}">
-      LG
+
+<span class="icon-text">
+  <span class="icon is-large">
+      <i class="fa-solid fa-user-secret fa-2xl"></i>
+  </span>
+  <span class="navbar-item is-size-4">LG</span>
+</span>
+
     </a>
 
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -13,6 +20,9 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
+      <a class="navbar-item" href="{{ url_for('home')}}">
+        Home
+      </a>
       <a class="navbar-item" href="{{ url_for('ping_multi')}}">
         Multi-Ping
       </a>

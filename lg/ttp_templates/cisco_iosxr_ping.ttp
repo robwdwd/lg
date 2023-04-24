@@ -4,7 +4,7 @@ def reverse_packet_loss(data):
 </macro>
 <group name="_.{{ destination }}">
 Type escape sequence to abort.{{ _start_ }}
-Sending {{ packet_count | DIGIT }}, {{ packet_size | DIGIT }}-byte ICMP Echos to {{ destination | IP }}, timeout is {{ ignore | DIGIT }} seconds:
+Sending {{ packet_count | DIGIT }}, {{ packet_size | DIGIT }}-byte ICMP Echos to {{ destination | IP | IPV6 }}, timeout is {{ ignore | DIGIT }} seconds:
 Success rate is {{ packet_loss| to_int | macro('reverse_packet_loss') }} percent ({{ ignore }}/{{ignore}}), round-trip min/avg/max = {{ rtt_min | append('ms') }}/{{ rtt_avg | append('ms') }}/{{ rtt_max | append('ms') }} ms
 Success rate is {{ packet_loss| to_int | macro('reverse_packet_loss') }} percent ({{ ignore }}/{{ignore}})
 </group>

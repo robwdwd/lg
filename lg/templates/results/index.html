@@ -7,7 +7,11 @@
     <div class="card-content">
       <div class="content">
         {% if results.raw %}
-          <pre><code>{{results.output}}</code></pre>
+        
+            <div class="is-family-code is-size-7" style="white-space: pre-line;">
+                    {{results.output}}
+            </div>
+
         {% else %}
 
           {% if results.command == 'ping' %}
@@ -17,7 +21,7 @@
           {% elif results.command == 'bgp' %}
             {% include "results/bgp.html" %}
           {% else %}
-            <pre><code>unknown command.</code></pre>
+            <pre><code>Unknown command.</code></pre>
           {% endif %}
 
         {% endif %}

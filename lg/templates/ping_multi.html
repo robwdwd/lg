@@ -10,7 +10,7 @@
 {% block content %}
 
   {% if results.errors %}
-    <div class="notification">
+    <div class="notification is-danger">
       <button class="delete"></button>
       {% for error in results.errors %}
         {{error}}<br/>

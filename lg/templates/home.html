@@ -10,11 +10,9 @@
 {% block content %}
 
   {% if results.errors %}
-    <div class="notification">
+    <div class="notification is-danger">
       <button class="delete"></button>
-      {% for error in results.errors %}
-        {{error}}<br/>
-      {% endfor %}
+        {{results.errors}}
     </div>
   {% endif %}
 
@@ -29,9 +27,9 @@
             <div class="select is-fullwidth{% if form.location.errors %} is-danger{% endif %}">
               {{ form.location }}
             </div>
-            <div class="icon is-small is-left">
-              <i class="fa-solid fa-globe"></i>
-            </div>
+            <div class="icon is-left">
+<i class="fa-solid fa-globe"></i>
+                </div>
           </div>
         </div>
         {% if form.location.errors %}
@@ -50,7 +48,7 @@
               {{ form.command }}
             </div>
             <div class="icon is-small is-left">
-              <i class="fa-solid fa-terminal"></i>
+                <i class="fa-solid fa-terminal"></i>
             </div>
           </div>
         </div>

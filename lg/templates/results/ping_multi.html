@@ -1,13 +1,3 @@
-{% if results.errors %}
-  <div class="box mt-4">
-    <p class="is-family-monospace is-danger">
-      {% for error in results.errors %}
-        {{error}}<br/>
-      {% endfor %}
-    </p>
-  </div>
-{% endif %}
-
 {% if results.devices %}
 
   <div class="card mt-4">
@@ -29,8 +19,8 @@
               {% for location_name, output in results.devices.items() %}
                 <tr>
                   <th>{{location_name}}</th>
-                  <td>
-                    <pre><code>{{output}}</code></pre>
+                  <td class="is-family-code is-size-7" style="white-space: pre-line;">
+                    {{output}}
                   </td>
                 </tr>
               {% endfor %}
