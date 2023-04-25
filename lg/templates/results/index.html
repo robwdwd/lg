@@ -7,9 +7,7 @@
     <div class="card-content">
       <div class="content">
         {% if results.raw %}
-          <div class="is-family-code is-size-7" style="white-space: pre-line;">
-            {{results.output}}
-          </div>
+          <pre style="background-color: transparent;"><code>{{results.output}}</code></pre>
         {% else %}
 
           {% if results.command == 'ping' %}

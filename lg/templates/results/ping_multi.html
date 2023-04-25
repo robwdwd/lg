@@ -19,9 +19,7 @@
                 {% for location_name, output in results.devices.items() %}
                   <tr>
                     <th>{{location_name}}</th>
-                    <td class="is-family-code is-size-7" style="white-space: pre-line;">
-                      {{output}}
-                    </td>
+                    <td><pre style="background-color: transparent;"><code>{{output}}</code></pre></td>
                   </tr>
                 {% endfor %}
               </tbody>
