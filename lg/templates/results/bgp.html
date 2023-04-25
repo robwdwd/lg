@@ -2,9 +2,7 @@
   <p class="is-size-5">No route found.</p>
 {% else %}
 
-  {% for prefix, details in results
-    .output
-    .items() %}
+  {% for prefix, details in results.output.items() %}
     <p class="subtitle is-5">BGP route for
       {{prefix}}</p>
     <div class="table-container">
