@@ -1,28 +1,33 @@
 {% if not results.errors %}
-
   <div class="card mt-4-tablet">
     <header class="card-header">
       <p class="card-header-title">Results</p>
+      {% if results.raw %}
+        <button class="btn-copy card-header-icon" aria-label="Copy to Clipboard" title="Copy to clipboard" data-clipboard-target="#copy_output"><span class="icon"><i class="fa-solid fa-copy" aria-hidden="true"></i></span></button>
+      {% endif %}
     </header>
     <div class="card-content">
       <div class="content">
         {% if results.raw %}
-          <pre style="background-color: transparent;"><code>{{results.output}}</code></pre>
+          <div id="copy_output">
+            <pre style="background-color: transparent;">
+              <code>{{ results.output }}</code>
+            </pre>
+          </div>
         {% else %}
-
           {% if results.command == 'ping' %}
-            {% include "results/ping.html" %}
-          {% elif results.command == 'traceroute' %}
-            {% include "results/traceroute.html" %}
-          {% elif results.command == 'bgp' %}
-            {% include "results/bgp.html" %}
+            {% include 'results/ping.html' %}
+            {% elif results.command == 'traceroute' %}
+            {% include 'results/traceroute.html' %}
+            {% elif results.command == 'bgp' %}
+            {% include 'results/bgp.html' %}
           {% else %}
-            <pre><code>Unknown command.</code></pre>
+            <pre>
+              <code>Unknown command.</code>
+            </pre>
           {% endif %}
-
         {% endif %}
       </div>
     </div>
   </div>
-
 {% endif %}
