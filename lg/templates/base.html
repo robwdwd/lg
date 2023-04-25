@@ -12,8 +12,8 @@
     </title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link href="node/@fortawesome/fontawesome-free/css/fontawesome.min.css" rel="stylesheet">
-    <link href="node/@fortawesome/fontawesome-free/css/solid.min.css" rel="stylesheet">
+    <link href="{{ url_for('node', path='/@fortawesome/fontawesome-free/css/fontawesome.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('node', path='/@fortawesome/fontawesome-free/css/solid.min.css') }}" rel="stylesheet">
 
   </head>
 
@@ -25,10 +25,9 @@
       </div>
     </section>
 
-    <script src="js/menu.js"></script>
-    <script src="js/close_delete.js"></script>
-
-    <script src="node/clipboard/dist/clipboard.min.js"></script>
+    <script src="{{ url_for('js', path='menu.js') }}"></script>
+    <script src="{{ url_for('js', path='close_delete.js') }}"></script>
+    <script src="{{ url_for('node', path='/clipboard/dist/clipboard.min.js') }}"></script>
 
     <script>
       var clipboard = new ClipboardJS('.btn-copy')
