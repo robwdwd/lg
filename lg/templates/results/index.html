@@ -3,16 +3,14 @@
     <header class="card-header">
       <p class="card-header-title">Results</p>
       {% if results.raw %}
-        <button class="btn-copy card-header-icon" aria-label="Copy to Clipboard" title="Copy to clipboard" data-clipboard-target="#copy_output"><span class="icon"><i class="fa-solid fa-copy" aria-hidden="true"></i></span></button>
+        <button class="btn-copy card-header-icon has-text-grey-light" aria-label="Copy to Clipboard" title="Copy to clipboard" data-clipboard-target="#copy_output"><span class="icon"><i class="fa-solid fa-copy" aria-hidden="true"></i></span></button>
       {% endif %}
     </header>
     <div class="card-content">
       <div class="content">
         {% if results.raw %}
           <div id="copy_output">
-            <pre style="background-color: transparent;">
-              <code>{{ results.output }}</code>
-            </pre>
+            <pre style="background-color: transparent;"><code>{{ results.output }}</code></pre>
           </div>
         {% else %}
           {% if results.command == 'ping' %}
