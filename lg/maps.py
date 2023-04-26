@@ -7,8 +7,8 @@
 """Map communities and ASNs to more human values."""
 
 
-import sqlite3
 import re
+import sqlite3
 
 
 def init_db():

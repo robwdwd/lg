@@ -8,11 +8,11 @@
 # import pprint
 from starlette_wtf import csrf_protect
 
-from lg.forms import HomeForm
-from lg.templates import templates
-from lg.runcmd import get_output
 from lg.commands import get_cmd
+from lg.forms import HomeForm
 from lg.maps import process_bgp_output
+from lg.runcmd import get_output
+from lg.templates import templates
 from lg.ttp import get_template
 
 # pp = pprint.PrettyPrinter(indent=2, width=120)

@@ -7,12 +7,13 @@
 """Multi-Ping Page."""
 
 import asyncio
+
 from starlette_wtf import csrf_protect
 
-from lg.forms import PingMultiForm
-from lg.templates import templates
-from lg.runcmd import get_output
 from lg.commands import get_ping_multi_cmds
+from lg.forms import PingMultiForm
+from lg.runcmd import get_output
+from lg.templates import templates
 from lg.ttp import get_template, parse_txt
 
 

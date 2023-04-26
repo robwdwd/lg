@@ -6,8 +6,10 @@
 #
 """Device command runner."""
 from typing import Union
+
 from scrapli import AsyncScrapli
 from scrapli.response import MultiResponse, Response
+
 from lg import settings
 
 

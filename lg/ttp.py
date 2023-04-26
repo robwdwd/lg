@@ -6,8 +6,9 @@
 #
 """TTP Template helper functions."""
 
-from typing import Union, List, Any
 from os.path import isfile
+from typing import Any, List, Union
+
 from ttp import ttp
 
 

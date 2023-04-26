@@ -6,12 +6,11 @@
 #
 """Setup routes."""
 
-from starlette.routing import Route, Mount
+from starlette.routing import Mount, Route
 from starlette.staticfiles import StaticFiles
 
 from lg.home import home
 from lg.ping_multi import ping_multi
-
 
 routes = [
     Route("/", endpoint=home, name="home", methods=["GET", "POST"]),

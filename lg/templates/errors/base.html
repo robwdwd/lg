@@ -15,19 +15,18 @@
 
   <body>
     {% include 'navmenu.html' %}
-    <section class="hero is-medium is-danger">
-      <div class="hero-body">
-        <p class="title">
+    <section class="section is-medium">
+      <div class="container">
+        <h1 class="title has-text-danger">
           {% block title %}
           {% endblock %}
-        </p>
-        <p class="subtitle">
+        </h1>
+        <h2 class="subtitle">
           {% block message %}
           {% endblock %}
-        </p>
+        </h2>
       </div>
     </section>
-
     <script src="{{ url_for('js', path = 'menu.js') }}"></script>
   </body>
 </html>

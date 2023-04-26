@@ -6,6 +6,7 @@
 #
 """Helper App to run ip web tools in development mode."""
 import uvicorn
+
 from lg import settings
 
 if __name__ == "__main__":

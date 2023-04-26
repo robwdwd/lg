@@ -6,9 +6,18 @@
 #
 """Application forms."""
 import ipaddress
+
 from starlette_wtf import StarletteForm
-from wtforms import SelectField, StringField, ValidationError, BooleanField, TextAreaField, SelectMultipleField
+from wtforms import (
+    BooleanField,
+    SelectField,
+    SelectMultipleField,
+    StringField,
+    TextAreaField,
+    ValidationError,
+)
 from wtforms.validators import DataRequired, Regexp
+
 from lg import settings
 
 

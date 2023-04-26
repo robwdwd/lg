@@ -12,11 +12,10 @@ from starlette.middleware import Middleware
 from starlette.middleware.sessions import SessionMiddleware
 from starlette_wtf import CSRFProtectMiddleware
 
-
 from lg import settings
-from lg.routes import routes
 from lg.errors import exception_handlers
 from lg.maps import init_db
+from lg.routes import routes
 
 # Set up CSRF and Sessions middleware
 # Make sure to change the keys in .env file

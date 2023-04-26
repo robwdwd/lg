@@ -21,7 +21,7 @@ async def http_exception(request: Request, exc: HTTPException):
 
 
 async def csrf_redirect(request: Request, exc: HTTPException):
-    return RedirectResponse(request.url_for("home"), 302)
+    return RedirectResponse(request.url, 302)
 
 
 exception_handlers = {CSRFError: csrf_redirect, HTTPException: http_exception}
