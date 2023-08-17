@@ -34,8 +34,8 @@ and also set `DEBUG=False` for a production environment.
 
 ### Location and command configuration
 
-Copy the [examples/config.yml](examples/config.yml) to the lg
-root folder (not in the package folder.) The path to this file can be changed
+Copy the [examples/config.yml.example](examples/config.yml.example) to config.yml in
+the lg root folder (not in the package folder.) The path to this file can be changed
 by changing CONFIG_FILE in the .env file.
 
 The config file contains the list of cities, devices and cli commands
@@ -48,6 +48,16 @@ To find all the device types look
 Every location needs a device (hostname), the device type, the full name of the
 location, a region and a source interface or ip address (for traceroute and
 ping commands).
+
+```console
+locations:
+  AMS:
+    name: Amsterdam
+    region: Western Europe
+    device: router.ams.example.net
+    type: cisco_iosxr
+    source: loopback999
+```
 
 The config.yml file also contains the commands to run on each device type.
 In each command the string IPADDRESS is substituted for the IP Address or CIDR

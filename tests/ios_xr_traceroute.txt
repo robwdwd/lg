@@ -1,8 +1,0 @@
-Type escape sequence to abort.
-Tracing the route to 8.8.8.8
-
- 1  212.74.73.109 3 msec
-    212.74.66.249 1 msec  1 msec
- 2  142.250.171.82 2 msec  2 msec  2 msec
- 3   *  *  *
- 4  dns.google (8.8.8.8) 1 msec  1 msec  1 msec
